@@ -1,6 +1,4 @@
 <?php
-include("controllers/test.controller.php");
-include("views/apalah.view.php");
 class Router {
     private $url;
 
@@ -11,7 +9,8 @@ class Router {
     public function route($param_one, $param_two, $param_three) {
         // Cek apakah param_one adalah controller
         if ($param_one === ""){
-            echo "nigga";
+            include_once("views/home.view.php");
+            home();
         }else{
             $nameController = $param_one."Controller";
         if (class_exists($nameController)) {
@@ -25,9 +24,17 @@ class Router {
             }
         } else {
             if ($param_two === "none") {
-                return $param_one();
+                $file = "views/$param_one.view.php";
+                if (file_exists($file)) {
+                    include_once($file);
+                    return $param_one();
+                }
             }else{
-                return $param_one($param_two);
+                $file = "views/$param_one.view.php";
+                if (file_exists($file)) {
+                    include_once($file);
+                    return $param_one($param_two);
+                }
             }
         }
         }
