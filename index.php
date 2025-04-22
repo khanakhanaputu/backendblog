@@ -4,5 +4,5 @@ include_once("router.php");
 
 $Router = new Router();
 
-// Routing manual
+// Routing auto bos wkwkwkwkwk
 $Router->run();
