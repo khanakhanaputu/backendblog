@@ -10,7 +10,7 @@ class DummyModel extends Database{
         $query = "SELECT * FROM $this->table";
         $result = mysqli_query($this->connect, $query);
         $data = [];
-        while($row = mysqli_fetch_array($result)){
+        while($row = mysqli_fetch_assoc($result)){
             $data[] = $row;
         }
         return $data;
@@ -20,7 +20,7 @@ class DummyModel extends Database{
         $result = mysqli_query($this->connect, $query);
         $data = [];
         if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_array($result)){
+            while($row = mysqli_fetch_assoc($result)){
                 $data[] = $row;
             }
             return $data;

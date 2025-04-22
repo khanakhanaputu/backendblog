@@ -3,9 +3,15 @@ class Router {
     private $url;
 
     public function __construct() {
-        $this->url = explode("/", $_SERVER["REQUEST_URI"]);
+        // Ambil URI dan ubah menjadi array berdasarkan "/"
+        $uri = explode("/", $_SERVER["REQUEST_URI"]);
+        
+        // Hapus "backendblog" dari URL hanya jika ada
+        $this->url = array_values(array_filter($uri, function($segment) {
+            return $segment !== "backendblog";
+        }));
     }
-
+    
     public function route($param_one, $param_two, $param_three) {
         // Cek apakah param_one adalah controller
         if ($param_one === ""){
