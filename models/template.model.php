@@ -1,10 +1,11 @@
 <?php
 
-class UserModel
+class UserModel extends Database
 {
     public function __construct()
     {
         // Inisialisasi koneksi database atau resource lain di sini
+        parent::__construct();
     }
 
     public function getAll()
