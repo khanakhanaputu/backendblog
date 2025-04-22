@@ -12,28 +12,41 @@ class Router {
             include_once("views/home.view.php");
             home();
         }else{
+        $getControllerName = "controllers/$param_one.controller.php";
+        if (file_exists($getControllerName)) {
+            include_once($getControllerName);
             $nameController = $param_one."Controller";
-        if (class_exists($nameController)) {
-            $controller = new $nameController();
-            $method = ($param_two === "none") ? "index" : $param_two;
-
-            if (method_exists($controller, $method)) {
-               return $param_three === "none" ? $controller->$method() : $controller->$method($param_three);
-            } else {
-                echo "ga nemu dawg";
+            if (class_exists($nameController)) {
+                $controller = new $nameController();
+                $method = ($param_two === "none") ? "index" : $param_two;
+    
+                if (method_exists($controller, $method)) {
+                   return $param_three === "none" ? $controller->$method() : $controller->$method($param_three);
+                } else {
+                    echo "ga nemu dawg";
+                }
+            }else{
+                echo "class tidak ada";
             }
-        } else {
+        }
+        else {
             if ($param_two === "none") {
                 $file = "views/$param_one.view.php";
                 if (file_exists($file)) {
                     include_once($file);
                     return $param_one();
+                }else{
+                    include_once("views/error.view.php");
+                    return error();
                 }
             }else{
                 $file = "views/$param_one.view.php";
                 if (file_exists($file)) {
                     include_once($file);
                     return $param_one($param_two);
+                }else{
+                    include_once("views/error.view.php");
+                    return error();
                 }
             }
         }
