@@ -6,10 +6,9 @@ class Router {
         // Ambil URI dan ubah menjadi array berdasarkan "/"
         $uri = explode("/", $_SERVER["REQUEST_URI"]);
         
-        // Hapus "backendblog" dari URL hanya jika ada
-        $this->url = array_values(array_filter($uri, function($segment) {
-            return $segment !== "backendblog";
-        }));
+        // array values buat rapiin array, array di dif buat ngilangin backendblog
+        $this->url = array_values(array_diff($uri, ["backendblog"]));
+
     }
     
     public function route($param_one, $param_two, $param_three) {
