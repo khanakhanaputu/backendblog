@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../public/css/output.css" />
-    <title>Login</title>
-  </head>
-  <body class="font-poppins">
-    <main class="flex items-center justify-center h-screen w-full">
+<?php
+
+function login(){ ?>
+  
+  <main class="flex items-center justify-center h-screen w-full font-poppins">
       <div class="ml-28">
         <h1 class="uppercase font-bold mb-16 text-xl">logo</h1>
 
@@ -65,5 +60,4 @@
         />
       </div>
     </main>
-  </body>
-</html>
+<?php } ?>
