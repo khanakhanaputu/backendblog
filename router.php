@@ -11,6 +11,12 @@ class Router {
 
     }
     
+    /**
+     * alur kerja
+     * jadi pertama ambil param_one, disini param_one bisa aja controller atau view jadi di cek dlu
+     * abistu cek ada param_two, param_two bisa aja method atau parameter pertama
+     * abistu cek ada param_three, param_three bisa aja parameter kedua
+     */
     public function route($param_one, $param_two, $param_three) {
         // Cek apakah param_one adalah controller
         if ($param_one === ""){
@@ -28,7 +34,7 @@ class Router {
                 if (method_exists($controller, $method)) {
                    return $param_three === "none" ? $controller->$method() : $controller->$method($param_three);
                 } else {
-                    echo "ga nemu dawg";
+                    echo "ga nemu dawggg";
                 }
             }else{
                 echo "class tidak ada";
@@ -58,6 +64,11 @@ class Router {
         }
     }
 
+    /**
+     * @param string $param_one nama controller atau view
+     * @param string $param_two nama method atau parameter pertama
+     * @param string $param_three parameter kedua
+     */
     public function run() {
         $controller = $this->url[1] ?? "HomeController";
         $method = $this->url[2] ?? "none";
