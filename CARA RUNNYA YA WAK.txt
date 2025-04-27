@@ -1,5 +1,3 @@
-copy command dibawah pada terminal dan running
 
-pastikan direktori sudah ada pada TailwindCSS
-
-./tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch
+1  npm -i 
+2  ./tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch
