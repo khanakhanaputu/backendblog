@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../public/css/output.css" />
-    <title>Register</title>
-  </head>
-  <body class="font-poppins">
-    <main class="flex items-center justify-center h-screen w-full">
-      <div class="ml-28">
-        <h1 class="uppercase font-bold mb-16 text-xl">logo</h1>
+<?php
+function register(){ ?>
+  <main class="flex items-center justify-center w-full h-screen">
+      <div class="w-full px-5 md:mx-40 xl:mx-0 xl:px-0 xl:w-auto xl:ml-28">
+        <h1 class="mb-16 text-xl font-bold uppercase">logo</h1>
 
         <div>
-          <h1 class="text-5xl leading-relaxed font-bold">
+          <h1 class="text-3xl font-bold leading-relaxed capitalize xl:text-5xl">
             <span class="block">Welcome,</span>
             <span class="block">Create your account</span>
           </h1>
@@ -37,24 +30,25 @@
           />
 
           <button
-            class="bg-[#8000D6] w-auto self-start px-7 py-3 text-white rounded-md capitalize mb-10"
+            class="bg-[#8000D6] w-full xl:w-auto self-start px-7 py-3 text-white rounded-md capitalize mb-10"
           >
             sign up
           </button>
 
-          <p class="text-sm font-light text-[#6b6b6b]">
+          <p class="text-sm font-light text-[#6b6b6b] text-center xl:text-start">
             Already have an account?
-            <a href="#" class="font-semibold text-[#8000D6]">Sign In</a>
+            <a href="/login" class="font-semibold text-[#8000D6]">Sign In</a>
           </p>
         </form>
       </div>
-      <div class="ml-28">
+      <div class="hidden ml-28 xl:block">
         <img
           src="../public/assets/Devices-cuate.svg"
           alt=""
           class="w-full h-full"
         />
       </div>
-    </main>
-  </body>
-</html>
+  </main>
+<?php 
+}
+?>

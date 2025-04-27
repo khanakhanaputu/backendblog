@@ -5,7 +5,7 @@ include_once("router.php");
 $Router = new Router();
 
 // Routing auto bos wkwkwkwkwk
-$Router->run();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,9 @@ $Router->run();
     <link rel="stylesheet" href="/public/css/output.css">
 
 </head>
-<body>
-    
+<body class="font-poppins">
+  <?php
+    $Router->run();
+  ?>
 </body>
 </html>
