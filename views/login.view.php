@@ -55,7 +55,7 @@ function login(){
       </div>
       <div class="hidden ml-28 xl:block">
         <img
-          src="../public/assets/Programming-rafiki 1.svg"
+          src="../public/assets/Programming-rafiki.svg"
           alt=""
           class="w-full h-full"
         />
