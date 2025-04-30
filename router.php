@@ -1,4 +1,5 @@
 <?php
+include_once("views/error.view.php");
 class Router {
     private $url;
 
@@ -21,46 +22,44 @@ class Router {
         // Cek apakah param_one adalah controller
         if ($param_one === ""){
             include_once("views/home.view.php");
-            home();
-        }else{
+            return home();
+        }
         $getControllerName = "controllers/$param_one.controller.php";
         if (file_exists($getControllerName)) {
             include_once($getControllerName);
             $nameController = $param_one."Controller";
-            if (class_exists($nameController)) {
+            if($nameController === "apiController"){
                 $controller = new $nameController();
-                $method = ($param_two === "none") ? "index" : $param_two;
-    
-                if (method_exists($controller, $method)) {
-                   return $param_three === "none" ? $controller->$method() : $controller->$method($param_three);
-                } else {
-                    echo "ga nemu dawggg";
+                $err_api = [
+                    'message' => 'what?'
+                ];
+                $method = $param_two == "" ? $err_api : $param_two;
+                if(!method_exists($controller, $method) && $method !== ""){
+                   return json_encode($err_api);
                 }
-            }else{
-                echo "class tidak ada";
+                return $controller->$method();
             }
+            if (!class_exists($nameController)) {
+                return error();
+            }
+            $controller = new $nameController();
+            $method = ($param_two === "none") ? "index" : $param_two;
+
+            if (!method_exists($controller, $method)) {
+                return error();
+            }
+            return $param_three === "none" ? $controller->$method() : $controller->$method($param_three);
         }
         else {
-            if ($param_two === "none") {
-                $file = "views/$param_one.view.php";
-                if (file_exists($file)) {
-                    include_once($file);
-                    return $param_one();
-                }else{
-                    include_once("views/error.view.php");
-                    return error();
-                }
-            }else{
-                $file = "views/$param_one.view.php";
-                if (file_exists($file)) {
-                    include_once($file);
-                    return $param_one($param_two);
-                }else{
-                    include_once("views/error.view.php");
-                    return error();
-                }
+            $file = "views/$param_one.view.php";
+            if (!file_exists($file)) {
+               return error(); 
             }
-        }
+            include_once($file);
+            if ($param_two === "none") {
+                return $param_one();
+            }
+            return $param_one($param_two);
         }
     }
 
@@ -76,4 +75,5 @@ class Router {
 
         return $this->route($controller, $method, $params);
     }
+
 }

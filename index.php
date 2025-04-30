@@ -10,7 +10,7 @@ $Router = new Router();
 if (isset($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], '/api') === 0) {
     // kalo ada /api tampiannya cuman jsone response
     header('Content-Type: application/json; charset=UTF-8');
-    $Router->run();  // ngejalanin router api
+    echo $Router->run();  // ngejalanin router api
 } else {
     // kalo nggaada /api nampilih struktur html untuk view nya
     ?>
