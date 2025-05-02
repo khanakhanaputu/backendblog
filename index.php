@@ -1,6 +1,7 @@
 <?php
 include_once("core/ezSyntax.php");
 include_once("router.php");
+include_once("core/middleware.php");
 
 $Router = new Router();
 

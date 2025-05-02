@@ -1,6 +1,10 @@
 <?php
 
 function login(){ 
+
+if(isset($_POST['gagal_login']) && $_POST['gagal_login'] === true){
+  echo "login gagal dawg";
+}
   
 ?>  
   <main class="flex items-center justify-center w-full h-screen">
@@ -19,11 +23,13 @@ function login(){
           <input
             type="username"
             placeholder="Username"
+            name="username"
             class="focus:outline-none border border-[#6b6b6b] rounded-md py-3 px-3 w-full font-light text-sm"
           />
           <input
             type="password"
             placeholder="Password"
+            name="password"
             class="focus:outline-none border border-[#6b6b6b] rounded-md py-3 px-3 w-full font-light text-sm"
           />
 
@@ -43,6 +49,7 @@ function login(){
 
           <button
             class="bg-[#8000D6] xl:w-auto self-start px-7 py-3 text-white rounded-md capitalize my-10 w-full"
+            type="submit"
           >
             sign in
           </button>
@@ -61,6 +68,11 @@ function login(){
         />
       </div>
     </main>
-<?php 
+<?php
+
 } 
+if(isset($_POST['username']) && $_POST['password']){
+  $auth = new Middleware(); 
+  $auth->auth($_POST['username'],$_POST['password']);
+}
 ?>
