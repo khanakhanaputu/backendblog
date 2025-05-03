@@ -14,5 +14,14 @@ class Middleware extends userModel
             $_POST['gagal_login'] = true;
         }
     }
-    
+    public function ifAuth(){
+        session_start();
+        if(!isset($_SESSION['user_data'])){
+            echo "blom login";
+        }
+        var_dump($_SESSION["user_data"]);
+    }
+    public function roleCheck(){
+        // masih perlu atau blm saya tidak tahu
+    }
 }

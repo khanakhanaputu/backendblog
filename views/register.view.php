@@ -16,21 +16,25 @@ function register(){ ?>
           <input
             type="username"
             placeholder="Username"
+            name="username"
             class="focus:outline-none border border-[#6b6b6b] rounded-md py-3 px-3 w-full font-light text-sm"
           />
           <input
             type="text"
             placeholder="Password"
+            name="password"
             class="focus:outline-none border border-[#6b6b6b] rounded-md py-3 px-3 w-full font-light text-sm"
           />
           <input
             type="text"
             placeholder="Confirm Password"
+            name="password"
             class="focus:outline-none border border-[#6b6b6b] rounded-md py-3 px-3 w-full font-light text-sm"
           />
 
           <button
             class="bg-[#8000D6] w-full xl:w-auto self-start px-7 py-3 text-white rounded-md capitalize mb-10"
+            type="submit"
           >
             sign up
           </button>
