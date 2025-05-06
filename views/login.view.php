@@ -61,11 +61,8 @@ if(!$status){
         </form>
       </div>
       <div class="hidden ml-28 xl:block">
-        <img
-          src="../public/assets/Programming-rafiki.svg"
-          alt=""
-          class="w-full h-full"
-        />
+      <img src="./public/assets/Programming-rafiki.svg" alt="" class="w-full h-full" />
+
       </div>
     </main>
 <?php
