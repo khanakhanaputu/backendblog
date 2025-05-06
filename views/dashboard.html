@@ -6,25 +6,74 @@
     <title>Home - Dashboard</title>
     <link rel="stylesheet" href="../public/css/output.css" />
   </head>
-  <body>
-    <main class="grid h-screen grid-cols-[400px_1fr]">
+  <body class="font-poppins">
+    <main class="flex h-screen">
       <!-- sidebar -->
-      <section class="border">
-        <h1 class="uppercase">logo</h1>
-        <div class="flex flex-col capitalize">
-          <a href="">create blog</a>
-          <span></span>
-          <a href="">dashboard</a>
-          <a href="">manage blogs</a>
-          <a href="">account</a>
-          <a href="">settings</a>
+      <aside
+        class="fixed left-0 top-0 h-screen w-[350px] bg-[#D9D9D9] px-5 overflow-y-auto"
+      >
+        <h1 class="mt-8 mb-16 text-6xl font-bold uppercase">logo</h1>
+        <div class="flex flex-col gap-8 capitalize">
+          <a
+            href=""
+            class="flex items-center gap-3 text-xl bg-[#B3B3B3] px-2 py-3 rounded-xl"
+          >
+            <img
+              src="../public/icons/pencil.svg"
+              alt="dashboard-icon"
+              class="w-8 h-8"
+            />
+            <span>create blog</span>
+          </a>
+          <span class="w-full h-1 bg-black"></span>
+          <div class="flex flex-col gap-8">
+            <a href="" class="flex items-center gap-3 text-xl">
+              <img src="../public/icons/home.svg" class="w-8 h-8" />
+              <span>dashboard</span>
+            </a>
+            <a href="" class="flex items-center gap-3 text-xl">
+              <img
+                src="../public/icons/adjustments-horizonta.svg"
+                class="w-8 h-8"
+              />
+              <span>manage blogs</span>
+            </a>
+            <a href="" class="flex items-center gap-3 text-xl">
+              <img src="../public/icons/user.svg" class="w-8 h-8" />
+              <span>account</span>
+            </a>
+            <a href="" class="flex items-center gap-3 text-xl">
+              <img src="../public/icons/setting.svg" class="w-8 h-8" />
+              <span>settings</span>
+            </a>
+          </div>
         </div>
-      </section>
+      </aside>
 
       <!-- content -->
-      <section class="border">
-        <div>
-          <h1>test</h1>
+      <section class="ml-[350px] flex-1 overflow-y-auto h-screen p-6">
+        <div class="space-y-10">
+          <div class="flex justify-between">
+            <div>
+              <h1 class="text-2xl">Welcome, Harry_nigga99</h1>
+              <h1 class="text-2xl">Dashboard</h1>
+            </div>
+
+            <div>
+              <div class="flex">
+                <h2>Harry_nigga99</h2>
+                <img
+                  src="https://us-tuna-sounds-images.voicemod.net/d6f8b4ec-0cdd-44b2-8b60-6e836d3a5769-1727697145354.jpeg"
+                  alt="harrynigga99-image"
+                  class="h-auto rounded-full w-28"
+                />
+              </div>
+            </div>
+          </div>
+
+          <h1 class="text-2xl font-bold">segini ajah mau lnjut forzahh</h1>
+          <p class="text-lg">HIDUP JOKOWII!!!!!</p>
+          <div class="h-[2000px] bg-gray-100 mt-6">pantat keram</div>
         </div>
       </section>
     </main>
