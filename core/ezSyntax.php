@@ -12,7 +12,7 @@ function testingFunc($function){
     try {
         if(is_string($function)){
             $tes = new ReflectionFunction($function);
-            if($tes->getNumberOfParameters() == 0){
+            if($tes->getNumberOfParameters() === 0){
                 return true;
             }else{
                 return false;

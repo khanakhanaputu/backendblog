@@ -67,7 +67,6 @@ class Router {
                 // cek dlu urlnya ga aneh" kek /login/adasda , kalau iya yaudah redirect user ke url yang bener
                 if($_SERVER['REQUEST_URI'] !== "/$param_one/$param_two"){
                     header("Location: /$param_one/$param_two");
-                    exit;
                 }
                 // return controllernya kalau url dah ga ngaco
                 return $controller->$method();

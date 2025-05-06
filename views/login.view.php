@@ -1,13 +1,13 @@
 <?php
 
-function login(){ 
+function login($status = false){ 
 
-if(isset($_POST['gagal_login']) && $_POST['gagal_login'] === true){
+if(!$status){
   echo "login gagal dawg";
 }
   
 ?>  
-  <main class="flex items-center justify-center w-full h-screen">
+  <main class="flex items-center justify-center w-full h-screen bg-black">
       <div class="w-full px-5 md:mx-40 xl:mx-0 xl:px-0 xl:w-auto xl:ml-28">
         <h1 class="mb-16 text-xl font-bold uppercase">logo</h1>
 
@@ -56,7 +56,7 @@ if(isset($_POST['gagal_login']) && $_POST['gagal_login'] === true){
 
           <p class="text-sm font-light text-[#6b6b6b] text-center xl:text-start">
             Don’t have an account?
-            <a href="/register" class="font-semibold text-[#8000D6]">Sign Up</a>
+            <a href="/register" class="font-semibold text-[#0067d6]">Sign Up</a>
           </p>
         </form>
       </div>
@@ -71,8 +71,5 @@ if(isset($_POST['gagal_login']) && $_POST['gagal_login'] === true){
 <?php
 
 } 
-if(isset($_POST['username']) && $_POST['password']){
-  $auth = new Middleware(); 
-  $auth->auth($_POST['username'],$_POST['password']);
-}
+
 ?>
