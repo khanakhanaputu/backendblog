@@ -9,6 +9,7 @@ class UserModel extends Database{
             while($row = mysqli_fetch_assoc($result)){
                 $data[] = $row;
             }
+            session_start();
             $_SESSION['user_data'] = $data;
             return true;
         }else{

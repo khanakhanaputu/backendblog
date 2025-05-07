@@ -11,8 +11,8 @@ class Middleware extends userModel
         session_start();
         if(!isset($_SESSION['user_data'])){
             echo "blom login";
+            exit;
         }
-        var_dump($_SESSION["user_data"]);
     }
     public function roleCheck(){
         // masih perlu atau blm saya tidak tahu

@@ -2,7 +2,7 @@
 
 function login($status = false){ 
 
-if(!$status){
+if($status){
   echo "login gagal dawg";
 }
   

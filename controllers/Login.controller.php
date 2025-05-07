@@ -7,16 +7,18 @@ class LoginController extends UserModel
 {
     public function index()
     {
-        // Your code for handling the login logic goes here
-        login();
-        
-        if(isset($_POST['username']) && $_POST['password']){
-            $auth = parent::auth($_POST['username'],$_POST['password']);
-            if (!$auth) {
-                login(false);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['username'], $_POST['password'])) {
+                $auth = parent::auth($_POST['username'], $_POST['password']);
+                if (!$auth) {
+                    login(true);
+                    exit; // Supaya tidak lanjut ke redirect
+                }
+                header('Location: /');
+                exit;
             }
-          }
-        
-        
+        }
+
+        login(); // Hanya tampilkan view kalau belum submit login
     }
 }
