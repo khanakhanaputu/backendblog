@@ -28,7 +28,7 @@ function register(){ ?>
           <input
             type="text"
             placeholder="Confirm Password"
-            name="password"
+            name="confirm_password"
             class="focus:outline-none border border-[#6b6b6b] rounded-md py-3 px-3 w-full font-light text-sm"
           />
 

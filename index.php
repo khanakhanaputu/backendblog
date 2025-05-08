@@ -25,6 +25,7 @@ if (isset($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], '/api') ==
         <?php
         $Router->run();
         ?>
+        <script></script>
     </body>
     </html>
     <?php

@@ -1,7 +1,5 @@
 <?php
-
-include_once("models/user.model.php");
-
+include_once('models/User.model.php');
 // Middleware
 
 class Middleware extends userModel
