@@ -1,6 +1,6 @@
 <?php
 include_once("core/database.php");
-class UserModel extends Database{
+class UsersModel extends Database{
     public function auth($username,$password){
         $query = "SELECT * FROM users WHERE username='$username' && password='$password'";
         $result = mysqli_query($this->connect, $query);
