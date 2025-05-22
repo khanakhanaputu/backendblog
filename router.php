@@ -1,23 +1,27 @@
 <?php
 include_once("views/error.view.php");
 
-class Router {
+class Router
+{
     private $url;
 
-    public function __construct() {
+    public function __construct()
+    {
         $uri = explode("/", $_SERVER["REQUEST_URI"]);
         $this->url = array_values(array_diff($uri, ["backendblog"]));
     }
 
-    public function run() {
+    public function run()
+    {
         $controller = $this->url[1] ?? "";
-        $method = $this->url[2] ?? "none";
-        $param = $this->url[3] ?? "none";
+        $method = $this->url[2] ?? "";
+        $param = $this->url[3] ?? "";
 
         return $this->route($controller, $method, $param);
     }
 
-    private function route($param_one, $param_two, $param_three) {
+    private function route($param_one, $param_two, $param_three)
+    {
         if ($param_one === "") {
             include_once("views/home.view.php");
             return home();
@@ -38,7 +42,7 @@ class Router {
 
             // API khusus
             if ($controllerClass === "apiController") {
-                return $this->handleApi($controller, $param_two);
+                return $this->handleApi($controller, $param_two, $param_three);
             }
 
             return $this->handleController($controller, $param_two, $param_three);
@@ -48,17 +52,19 @@ class Router {
         return $this->handleView($param_one, $param_two);
     }
 
-    private function handleController($controller, $method, $param) {
-        $method = ($method === "none") ? "index" : $method;
+    private function handleController($controller, $method, $param)
+    {
+        $method = ($method === "") ? "index" : $method;
 
         if (!method_exists($controller, $method)) {
             return error();
         }
 
-        return ($param === "none") ? $controller->$method() : $controller->$method($param);
+        return ($param === "") ? $controller->$method() : $controller->$method($param);
     }
 
-    private function handleView($viewName, $param = "none") {
+    private function handleView($viewName, $param = "")
+    {
         $viewFile = "views/$viewName.view.php";
 
         if (!file_exists($viewFile)) {
@@ -67,18 +73,25 @@ class Router {
 
         include_once($viewFile);
 
-        return ($param === "none") ? $viewName() : $viewName($param);
+        return ($param === "") ? $viewName() : $viewName($param);
     }
 
-    private function handleApi($controller, $method) {
-        $err_api = ['message' => 'what?'];
+    private function handleApi($controller, $method, $param)
+    {
+        $err_api = ['message' => 'error not found'];
 
         if (empty($method) || !method_exists($controller, $method)) {
-            http_response_code(400);
+            http_response_code(404);
             echo json_encode($err_api);
-            return;
+            exit;
         }
 
-        return $controller->$method();
+        $check_param = new ReflectionMethod($controller, $method);
+        if ($check_param->getNumberOfParameters() == 0 && $param !== "") {
+            http_response_code(404);
+            echo json_encode($err_api);
+            exit;
+        }
+        return ($param === "") ? $controller->$method() : $controller->$method($param);
     }
 }
