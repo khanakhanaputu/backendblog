@@ -1,0 +1,26 @@
+[
+    {
+        "kd_brg": "BRG002",
+        "nama_brg": "Monitor LED 32 Inch",
+        "harga_brg": "30000000",
+        "stok_brg": "20"
+    },
+    {
+        "kd_brg": "BRG003",
+        "nama_brg": "Mouse Wireless Logitech",
+        "harga_brg": "175000",
+        "stok_brg": "10"
+    },
+    {
+        "kd_brg": "BRG005",
+        "nama_brg": "Mouse Wireless Rexus",
+        "harga_brg": "1725000",
+        "stok_brg": "10"
+    },
+    {
+        "kd_brg": "BRG007",
+        "nama_brg": "Mouse Wireless Rexus",
+        "harga_brg": "1725000",
+        "stok_brg": "10"
+    }
+]

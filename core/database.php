@@ -1,13 +1,15 @@
 <?php
 
-class Database {
+class Database
+{
     protected $db;
     private $username;
     private $password;
     private $host;
     protected $connect;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->host = "localhost";
         $this->username = "root"; // atau username kamu sendiri
         $this->password = "";
