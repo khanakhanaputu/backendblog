@@ -7,7 +7,7 @@ if($status){
 }
   
 ?>  
-  <main class="flex items-center justify-center w-full h-screen bg-black">
+  <main class="flex items-center justify-center w-full h-screen">
       <div class="w-full px-5 md:mx-40 xl:mx-0 xl:px-0 xl:w-auto xl:ml-28">
         <h1 class="mb-16 text-xl font-bold uppercase">logo</h1>
 
